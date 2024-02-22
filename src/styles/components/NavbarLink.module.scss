@@ -1,0 +1,58 @@
+@use '../globals' as *;
+
+.NavbarLink {
+    padding: $md-space $lg-space;
+    gap: $md-space;
+    border-radius: $sm-space;
+    border: $border-weight solid $main-color;
+    @include flex-item-center;
+
+    &.active {
+        background-color: $main-color !important;
+    }
+
+    &:hover {
+        letter-spacing: 0.0625rem;
+        transition: .25s ease-out;
+    }
+
+    >div {
+        @include image-container($xl-space);
+    }
+
+    >span {
+        font-size: $basic-space;
+        font-weight: $font-bold;
+        text-transform: capitalize;
+    }
+}
+
+@include mobile-query {
+    .NavbarLink {
+        width: $xxxl-space;
+        height: $xxxl-space;
+        padding: $md-space;
+        flex-direction: column;
+        gap: 0;
+        border: none;
+
+        &:active {
+            background-color: rgba($secondary-color, 0.1);
+        }
+
+        &[href='/urgent'] {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: $sm-space;
+            background: $main-background-color;
+            box-shadow: 0px 0px 8px 0px rgba($secondary-color, 0.25);
+        }
+
+        >span {
+            font-size: $md-space;
+            font-weight: $font-reg;
+        }
+    }
+}

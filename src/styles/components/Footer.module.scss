@@ -1,0 +1,12 @@
+@use '../globals' as *;
+
+.Footer {
+    padding: $xl-space / 2 0;
+    flex-direction: column;
+    gap: $md-space / 2;
+    @include flex-item-center;
+
+    >span {
+        font-size: $md-space;
+    }
+}

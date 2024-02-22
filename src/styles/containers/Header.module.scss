@@ -1,0 +1,83 @@
+@use '../globals' as *;
+
+.Header {
+    padding: $basic-space 2rem;
+    border-bottom: $border-weight solid $main-color;
+    justify-content: space-between;
+    grid-area: 1 / 1 / 2 / 4;
+    @include flex-item-center;
+
+    >a {
+        gap: 0.5rem;
+        @include flex-item-center;
+
+        >div {
+            @include image-container(2rem, .5rem 0);
+        }
+
+        >h1 {
+            color: $secondary-color;
+            font-size: $basic-space;
+        }
+    }
+
+    >div {
+        gap: $lg-space;
+        @include flex-item-center;
+
+        >div {
+            display: flex;
+            align-items: center;
+            gap: $md-space;
+
+            >a,
+            >button {
+                border-radius: 50%;
+                @include image-container($xl-space);
+            }
+
+            >button {
+                background: none;
+                @include button-initial;
+                border: $border-weight solid $main-color;
+            }
+
+            >a {
+                padding: 1px;
+
+                >img {
+                    position: relative !important;
+                }
+
+                &::after {
+                    content: "";
+                    background-color: $main-color;
+                    position: absolute;
+                    width: .375rem;
+                    height: .375rem;
+                    border-radius: 50%;
+                    top: 0.15rem;
+                    right: 0.2rem;
+                }
+            }
+        }
+
+        >button {
+            border-radius: 50%;
+            @include image-container(3rem);
+            @include button-initial;
+        }
+    }
+}
+
+@include mobile-query {
+    .Header {
+        position: relative;
+        gap: $xxl-space;
+        grid-column: 1 / 3;
+
+        >div {
+            gap: $basic-space;
+        }
+    }
+}

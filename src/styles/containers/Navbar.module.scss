@@ -1,0 +1,24 @@
+@use '../globals' as *;
+
+.Navbar {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    gap: $md-space;
+}
+
+@include mobile-query {
+    .Navbar {
+        grid-row: 3;
+        justify-content: space-between;
+        flex-direction: row;
+        padding: $basic-space $xxl-space;
+        position: relative;
+        z-index: 1;
+        @include show-body;
+    }
+
+    [data-open] .Navbar {
+        @include hidden-body;
+    }
+}

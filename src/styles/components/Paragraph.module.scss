@@ -1,0 +1,36 @@
+@use '../globals' as *;
+
+.Paragraph {
+    position: relative;
+    width: 100%;
+    
+    > p {
+        line-height: $lg-space;
+        height: $lg-space * 2;
+        overflow: hidden;
+        transition: .5s;
+    }
+    > button {
+        background: $no-color;
+        color: $main-color;
+        font-size: $basic-space * .625;
+        line-height: $basic-space;
+        letter-spacing: $basic-space / 16;
+        text-decoration: underline;
+        text-align: center;
+        @include button-initial;
+
+        &::after {
+            content: "show more";
+        }
+    }
+
+    &[data-show] {
+        > p {
+            height: unset;
+        }
+        > button::after {
+            content: "show less";
+        }
+    }
+}

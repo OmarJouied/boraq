@@ -1,0 +1,15 @@
+@use '../globals' as *;
+
+.FilterPostsButton {
+    color: $secondary-color;
+    font-size: $basic-space * 0.875;
+    padding: $xl-space / 2 $xl-space;
+    border-radius: $sm-space;
+    background-color: $secondary-color-4;
+    text-transform: capitalize;
+    @include button-initial;
+
+    &[data-active] {
+        background-color: $main-color;
+    }
+}

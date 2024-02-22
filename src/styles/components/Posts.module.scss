@@ -1,0 +1,17 @@
+@use '../globals' as *;
+
+.Posts {
+    background-color: $secondary-color;
+    flex: 1;
+    position: relative;
+    overflow: auto;
+    
+    > div {
+        position: absolute;
+        width: 100%;
+        padding: $xxl-space;
+        display: flex;
+        flex-direction: column;
+        gap: $lg-space;
+    }
+}

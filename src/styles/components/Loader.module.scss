@@ -1,0 +1,16 @@
+@use '../globals' as *;
+
+.Loader {
+    border: $basic-space / 8 solid $main-color;
+    border-top-color: rgba($main-color, .25);
+    border-radius: 50%;
+    padding: $basic-space * .75;
+    transform: rotate(0deg);
+    animation: rotate 1s ease-in-out infinite;
+}
+
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}

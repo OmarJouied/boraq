@@ -1,0 +1,23 @@
+@use '../globals' as *;
+
+.Aside {
+    padding-top: 1.125rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    >main {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 1;
+    }
+}
+
+@include mobile-query {
+    .Aside {
+        grid-column: 2;
+        grid-row: 2 / 4;
+        overflow: hidden;
+    }
+}

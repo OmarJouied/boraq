@@ -1,0 +1,16 @@
+@use '../globals' as *;
+
+.Main {
+    display: flex;
+    flex-direction: column;
+}
+
+@include mobile-query {
+    .Main {
+        @include show-body;
+    }
+
+    [data-open] .Main {
+        @include hidden-body;
+    }
+}

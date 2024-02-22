@@ -1,0 +1,62 @@
+@use '../globals' as *;
+
+.AsideSection {
+    display: flex;
+    flex-direction: column;
+    gap: $md-space;
+    flex: 1;
+    transition: .3s ease-in-out;
+
+    &[data-close] {
+        flex: 0;
+
+        >header>button>img { transform: rotate(90deg) }
+    }
+
+    >header {
+        >button {
+            width: 100%;
+            padding: $md-space;
+            padding-bottom: 0;
+            background-color: $no-color;
+            @include button-initial;
+
+            >img {
+                transform: rotate(-90deg);
+                transition: .3s ease-in-out;
+            }
+        }
+        >h3 {
+            padding: $md-space;
+            color: $secondary-color;
+            font-size: $basic-space;
+            font-weight: $font-reg;
+        }
+    }
+    >div {
+        position: relative;
+        overflow: auto;
+        flex: 1;
+
+        // &:first-child::after {
+        //     content: "";
+        //     position: absolute;
+        // }
+
+        >div {
+            position: absolute;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: $md-space 0;
+
+            >span {
+                text-align: center;
+                font-size: $md-space;
+                color: $secondary-color-2;
+                text-transform: uppercase;
+                letter-spacing: $basic-space / 16;
+            }
+        }
+    }
+}

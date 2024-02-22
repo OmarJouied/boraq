@@ -1,0 +1,116 @@
+@use '../globals' as *;
+
+.Post {
+    display: flex;
+    flex-direction: column;
+    gap: $md-space;
+    padding: $basic-space $xxl-space;
+    border-radius: $basic-space;
+    background-color: $main-background-color;
+
+    > header,
+    // > main,
+    > footer {
+        display: flex;
+        gap: $md-space;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    > header > div {
+        display: flex;
+        gap: $md-space;
+
+        &:first-child {
+            flex: 1;
+
+            > div:first-child {
+                @include image-container($basic-space * 3);
+            }
+            > div:last-child {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: $sm-space;
+
+                > h2 {
+                    font-size: $basic-space * 1.125;
+                    font-weight: $font-bold;
+                }
+                > a {
+                    color: $secondary-color-2;
+                    font-size: $space-875;
+                }
+            }
+        }
+        &:last-child {
+            align-items: center;
+            > span {
+                color: $secondary-color-2;
+                font-size: $space-875;
+            }
+            > div {
+                gap: $sm-space / 2;
+                @include flex-item-center;
+
+                > button {
+                    padding: $space-75 $xl-space;
+                    font-weight: $font-bold;
+                    color: inherit;
+                    background-color: $main-color;
+                    font-size: $basic-space;
+                    border-radius: $basic-space * 1.59375;
+                    @include button-initial
+                }
+                > div {
+                    > button {
+                        display: flex;
+                        background-color: $no-color;
+                        border-radius: $basic-space * 1.125;
+                        padding: $basic-space * .5625 $basic-space;
+                        @include button-initial;
+                    }
+                }
+            }
+        }
+    }
+    > main {
+        padding: $basic-space 0;
+
+        > p {
+            font-size: $basic-space;
+        }
+    }
+    > footer {
+        padding: inherit;
+        justify-content: space-between;
+
+        > button {
+            padding: $sm-space $basic-space;
+            gap: $md-space / 2;
+            background-color: $no-color;
+            border-radius: $lg-space;
+            cursor: pointer;
+            border: $basic-space / 16 solid rgba($secondary-color, 0);
+            @include flex-item-center;
+
+            &[data-active] {
+                border-color: rgba($secondary-color, .25);
+            }
+
+            > div {
+                @include image-container($xl-space);
+            }
+            > span {
+                color: rgba($secondary-color, .5);
+                font-size: $basic-space * .875;
+            }
+        }
+    }
+}
+
+@include mobile-query {
+    .Post > footer {
+        padding: 1rem 0;
+    }
+}

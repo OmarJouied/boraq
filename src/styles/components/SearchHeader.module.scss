@@ -1,0 +1,85 @@
+@use '../globals' as *;
+
+.SearchHeader {
+    display: flex;
+    width: 21.875rem;
+    flex-shrink: 0;
+    border-radius: 1.15625rem;
+    border: $border-weight solid rgba($main-color, .5);
+    overflow: hidden;
+
+    &:hover,
+    &:has(input:focus) {
+        border: $border-weight solid rgba($main-color, 1);
+    }
+
+    * {
+        outline: none;
+    }
+
+    button {
+        padding: $md-space;
+        background: $secondary-color;
+        display: flex;
+        @include button-initial;
+    }
+
+    >button {
+        padding: $md-space $basic-space;
+        position: relative;
+        align-items: center;
+    }
+
+    >div {
+        display: flex;
+        flex: 1;
+
+        >input {
+            padding: $md-space $basic-space / 2 $md-space $basic-space;
+            flex: 1;
+            border: none;
+            background: none;
+            color: $secondary-color;
+            caret-color: $secondary-color;
+
+            &::placeholder {
+                color: rgba($secondary-color, 0.6);
+            }
+        }
+    }
+}
+
+@include mobile-query {
+    .SearchHeader {
+        width: unset;
+
+        &[data-active] {
+            >div {
+                top: 100%;
+                opacity: 1;
+                visibility: visible;
+                z-index: 3;
+            }
+        }
+
+        >button {
+            padding: $md-space;
+        }
+
+        >div {
+            position: absolute;
+            top: 130%;
+            left: 0;
+            opacity: 0;
+            visibility: hidden;
+            width: 100%;
+            background-color: $main-background-color;
+            border: inherit;
+            border-top-color: #0000;
+            border-left: none;
+            border-right: none;
+            box-shadow: 0 $sm-space / 2 $sm-space 0 $main-background-color;
+            transition: top .3s ease-out, border-top-color 0s .3s;
+        }
+    }
+}

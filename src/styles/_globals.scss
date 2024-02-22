@@ -1,0 +1,64 @@
+$mobile-size: 896px;
+
+$main-background-color: #131524;
+$main-background-color-2: rgba($main-background-color, .5);
+$main-color: #0690F7;
+$secondary-color: #F5DEB3;
+$secondary-color-2: rgba($secondary-color, .5);
+$secondary-color-4: rgba($secondary-color, .25);
+$no-color: #0000;
+
+$basic-space: 1rem;
+$sm-space: $basic-space / 2;
+$md-space: $basic-space / 1.6;
+$lg-space: $basic-space * 1.25;
+$xl-space: $basic-space * 1.5;
+$xxl-space: $basic-space * 2;
+$xxxl-space: $basic-space * 3.5;
+$space-75: $basic-space * .75;
+$space-875: $basic-space * .875;
+
+$border-weight: .0625rem;
+
+$font-reg: 400;
+$font-bold: 700;
+
+@mixin button-initial {
+    border: none;
+    cursor: pointer;
+}
+
+@mixin show-body {
+    transition: .25s .3s linear;
+}
+
+@mixin hidden-body {
+    opacity: 0;
+    visibility: hidden;
+    width: 0;
+    padding: 0;
+    transition: 0s;
+}
+
+@mixin image-container($size, $padding: 0) {
+    width: $size;
+    height: $size;
+    position: relative;
+    border-radius: 50%;
+
+    @if ($padding != 0) {
+        padding: $padding;
+        box-sizing: content-box;
+    }
+}
+
+@mixin flex-item-center {
+    display: flex;
+    align-items: center;
+}
+
+@mixin mobile-query {
+    @media screen and (max-width: $mobile-size) {
+        @content;
+    }
+}
